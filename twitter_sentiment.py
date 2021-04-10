@@ -121,17 +121,17 @@ def makePrediction(model, bearer, name1, name2 = ""):
 
     #for the middle range (for lukewarm buy/sell/no action recommend Hold)
     if (ratio1 > ratio2):
-        if (ratio1 >= 3):
+        if (ratio1 >= 2):
             print("Strong Buy")
-        elif (ratio1 >= 2):
+        elif (ratio1 >= 1.5):
             print("Buy")
         else:
             print("Hold")
 
     else:
-        if (ratio2 >= 3):
+        if (ratio2 >= 2):
             print("Strong Sell")
-        elif (ratio2 >= 2):
+        elif (ratio2 >= 1.5):
             print("Sell")
         else:
             print("Hold")
@@ -148,7 +148,7 @@ def main():
     bearer_keys = (list_of_rows[2])
     bearer_key = bearer_keys[1]
     makePrediction(myModel, bearer_key, "tesla", "tsla")
-    makePrediction(myModel, bearer_key, "robinhood")
+    makePrediction(myModel, bearer_key, "qualcomm")
     #make a request for tweets mentioning "tesla"
     
 
