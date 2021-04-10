@@ -1,17 +1,9 @@
-import requests
-import pandas as pd
-import flair
 import re
-import praw
-
-import keyword
-
-import operator
-
 from csv import reader
-from os import environ as env
-from gensim.summarization import keywords
-from nltk.corpus import stopwords
+
+import flair
+import praw
+import requests
 
 
 def make_prediction(model, reddit, twitter_bearer_key, company_name, ticker=""):
