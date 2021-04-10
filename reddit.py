@@ -6,11 +6,6 @@ import yfinance as yf
 import string
 
 
-# for submission in reddit.subreddit('wallstreetbets').top(limit=1000):
-#     if submission.link_flair_text == 'Daily Discussion':
-#         print(submission.title)
-#         print(submission.link_flair_text)
-
 # Searches two most recent megathreads, we should also check accuracy on one
 def predict_gme_sentiment(reddit, model):
     probabilities = []
