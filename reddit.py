@@ -2,12 +2,27 @@ import praw
 import flair
 import pandas as pd
 import re
+import yfinance as yf
+import string
 
 
 # for submission in reddit.subreddit('wallstreetbets').top(limit=1000):
 #     if submission.link_flair_text == 'Daily Discussion':
 #         print(submission.title)
 #         print(submission.link_flair_text)
+
+def comment_is_relevant(comment, company_name, ticker):
+    return re.search(ticker, comment, re.IGNORECASE) or re.search(company_name, comment, re.IGNORECASE)
+
+
+def trim_company_name(company_name):
+    company_name = company_name.split()[0]
+    return company_name.translate(str.maketrans('', '', string.punctuation))
+
+
+def get_company_name(ticker):
+    long_name = yf.Ticker(ticker).info['longName']
+    return trim_company_name(long_name)
 
 
 def clean_comment(comment):
@@ -22,6 +37,8 @@ def predict_sentiments(reddit, model, ticker):
     probabilities = []  # confidence of prediction
     sentiments = []  # POSITIVE/NEGATIVE
 
+    company_name = get_company_name(ticker)
+
     for submission in reddit.subreddit('wallstreetbets').search(query='flair:"Daily Discussion"', sort='new', limit=2):
         # print(submission.title)
         # print(submission.link_flair_text)
@@ -29,10 +46,10 @@ def predict_sentiments(reddit, model, ticker):
         for i in range(0, 400):
             comment = clean_comment(submission.comments[i].body)
             # TODO: Turn this boolean expression into a function
-            if comment.find(ticker) != -1:
+            if comment_is_relevant(comment, company_name, ticker):
                 sentence = flair.data.Sentence(comment)
                 model.predict(sentence)
-                # print(sentence)
+                print(sentence)
 
                 probabilities.append(sentence.labels[0].score)
                 sentiments.append(sentence.labels[0].value)
