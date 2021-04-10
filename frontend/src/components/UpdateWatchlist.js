@@ -1,0 +1,1 @@
+//**Renders button to add stock to watchlist to be used across multiple components */
