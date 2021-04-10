@@ -1,0 +1,1 @@
+//** Renders landing page component which will feature SearchBar, Header, Nav, and About components */

@@ -1,0 +1,1 @@
+//** Renders Watchlist component which will contain each users watchlisted stock data/stock chart */

@@ -1,0 +1,1 @@
+//**Renders Search Bar to be used across pages */

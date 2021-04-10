@@ -1,0 +1,1 @@
+//**Renders each invidual Stock Card data */

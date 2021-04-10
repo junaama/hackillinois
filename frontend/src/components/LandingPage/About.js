@@ -1,0 +1,1 @@
+//**Renders About component which will feature on the Landing Page */
