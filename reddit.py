@@ -11,6 +11,27 @@ import string
 #         print(submission.title)
 #         print(submission.link_flair_text)
 
+# Searches two most recent megathreads, we should also check accuracy on one
+def predict_gme_sentiment(reddit, model):
+    probabilities = []
+    sentiments = []
+
+    for submission in reddit.subreddit('wallstreetbets').search(query='GME Megathread', sort='new', limit=2):
+        for i in range(0, 400):
+            comment = clean_comment(submission.comments[i].body)
+            sentence = flair.data.Sentence(comment)
+            model.predict(sentence)
+            print(sentence)
+
+            probabilities.append(sentence.labels[0].score)
+            sentiments.append(sentence.labels[0].value)
+
+    df = pd.DataFrame()
+    df['probability'] = probabilities
+    df['sentiment'] = sentiments
+    return df
+
+
 def comment_is_relevant(comment, company_name, ticker):
     return re.search(ticker, comment, re.IGNORECASE) or re.search(company_name, comment, re.IGNORECASE)
 
@@ -33,7 +54,12 @@ def clean_comment(comment):
     return comment
 
 
+# Searches two most recent daily discussions, one is usually a generic daily discussion
+# and another is discussion about tomorrow
 def predict_sentiments(reddit, model, ticker):
+    if ticker == "GME":
+        return predict_gme_sentiment(reddit, model)
+
     probabilities = []  # confidence of prediction
     sentiments = []  # POSITIVE/NEGATIVE
 
@@ -99,7 +125,7 @@ def main():
     reddit = praw.Reddit(client_id='RgFYwRpBqsZ5vw', client_secret='1QLaOziV8n77kzEQSvCtEUghASLaRQ',
                          user_agent='HackIllinoisBot')
     sentiment_model = flair.models.TextClassifier.load('en-sentiment')
-    print(recommend(reddit, sentiment_model, 'TSLA'))
+    print(recommend(reddit, sentiment_model, 'GME'))
 
 
 if __name__ == '__main__':
