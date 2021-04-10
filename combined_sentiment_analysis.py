@@ -83,10 +83,6 @@ def comment_is_relevant(comment, company_name, ticker):
         return re.search(ticker, comment, re.IGNORECASE) or re.search(company_name, comment, re.IGNORECASE)
 
 
-def comment_is_relevant(comment, company_name):
-    return re.search(company_name, comment, re.IGNORECASE)
-
-
 def calculate_sentiment(model, comments):
     probabilities = list()
     sentiments = list()
@@ -115,11 +111,11 @@ def calculate_recommendation(probabilities, sentiments):
     positivity_ratio = pos / neg
     if positivity_ratio >= 2:
         recommendation = "Strong Buy"
-    elif positivity_ratio >= 1.5:
+    elif positivity_ratio >= 1.3:
         recommendation = "Buy"
     elif positivity_ratio <= 0.5:
         recommendation = "Strong Sell"
-    elif positivity_ratio <= 2.0 / 3:
+    elif positivity_ratio <= 1 / 1.3:
         recommendation = "Sell"
     else:
         recommendation = "Hold"
@@ -145,7 +141,7 @@ def main():
     reddit = praw.Reddit(client_id=reddit_client_id, client_secret=reddit_client_secret,
                          user_agent=reddit_user_agent)
 
-    print(make_prediction(model, reddit, twitter_bearer_key, "qualcomm", "tsla"))
+    print(make_prediction(model, reddit, twitter_bearer_key, "gamestop", "gme"))
 
 
 if __name__ == "__main__":
