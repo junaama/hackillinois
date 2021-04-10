@@ -24,11 +24,12 @@ def getData(tweet):
 
 #make a request for tweets mentioning "tesla"
 params = {
-    'q': 'tesla',
+    'q': 'tesla', 
     'tweet_mode': 'extended',
     'lang': 'en',
     'count': '1000'
 }
+
 response1 = requests.get(
     'https://api.twitter.com/1.1/search/tweets.json',
     params=params,
@@ -98,4 +99,43 @@ tweets['probability'] = probabilities
 tweets['sentiment'] = sentiments
 
 
+#------------------------------------------------------------------------------#
 
+#PART 4: RECOMMENDATION
+
+pos = 0
+neg = 0
+
+# we want each sentiment to affect the final recommendation by its confidence so adjust on a scale from 0-1 as per confidence
+for i in range(len(sentiments)):
+    if (sentiments[i] == "POSITIVE"):
+        pos = pos + (1 * probabilities[i])
+        
+    if (sentiments[i] == "NEGATIVE"):
+        neg = neg + (1 * probabilities[i])
+        
+average_confidence = (sum(probabilities))/len(probabilities)
+
+# if we have a highly positive/highly negative prediction, we want to recommend an action
+# otherwise hold
+ratio1 = pos/neg
+ratio2 = neg/pos
+
+#for the middle range (for lukewarm buy/sell/no action recommend Hold)
+if (ratio1 > ratio2):
+    if (ratio1 >= 3):
+        print("Strong Buy")
+    elif (ratio1 >= 2):
+        print("Buy")
+    else:
+        print("Hold")
+
+else:
+    if (ratio2 >= 3):
+        print("Strong Sell")
+    elif (ratio2 >= 2):
+        print("Sell")
+    else:
+        print("Hold")
+
+print(average_confidence, pos, neg)
