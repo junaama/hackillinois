@@ -26,8 +26,6 @@ for submission in reddit.subreddit('wallstreetbets').search(query='flair:"Daily 
             sentiment_model.predict(sentence)
             print(sentence)
 
-
-
 for submission in reddit.subreddit('wallstreetbets').search(query='GME Megathread', sort='new', limit=2):
     print(submission.title)
 
