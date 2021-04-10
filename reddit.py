@@ -13,9 +13,13 @@ reddit = praw.Reddit(client_id='RgFYwRpBqsZ5vw', client_secret='1QLaOziV8n77kzEQ
 #         print(submission.title)
 #         print(submission.link_flair_text)
 
-for submission in reddit.subreddit('wallstreetbets').search('flair:"Daily Discussion"', sort='new', limit=2):
+for submission in reddit.subreddit('wallstreetbets').search(query='flair:"Daily Discussion"', sort='new', limit=2):
     print(submission.title)
     print(submission.link_flair_text)
+    comments = submission.comments
+    for i in range(0, 400):
+        if comments[i].body.find('TSLA') != -1:
+            print(comments[i].body)
 
 for submission in reddit.subreddit('wallstreetbets').search(query='GME Megathread', sort='new', limit=2):
     print(submission.title)
