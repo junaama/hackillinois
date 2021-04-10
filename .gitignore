@@ -1,0 +1,9 @@
+# Python virtual environment
+/env/
+# IDE settings
+/.idea/.gitignore
+/.idea/hackillinois.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
