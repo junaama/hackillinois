@@ -8,9 +8,14 @@ import flair
 #re for regex preprocessing
 import re
 
+import keyword
+
+import operator
+
 from csv import reader
 from os import environ as env
-
+from gensim.summarization import keywords
+from nltk.corpus import stopwords
 
 #functions to use
 def getData(tweet):
@@ -27,7 +32,8 @@ def makePrediction(model, bearer, name1, name2 = ""):
         'q': name1, 
         'tweet_mode': 'extended',
         'lang': 'en',
-        'count': '1000'
+        'count': '1000',
+        'result_type': "recent"
     }
 
     response1 = requests.get(
@@ -41,7 +47,8 @@ def makePrediction(model, bearer, name1, name2 = ""):
             'q': 'tsla',
             'tweet_mode': 'extended',
             'lang': 'en',
-            'count': '1000'
+            'count': '1000',
+            'result_type': "recent"
         }
         response2 = requests.get(
             'https://api.twitter.com/1.1/search/tweets.json',
@@ -63,6 +70,7 @@ def makePrediction(model, bearer, name1, name2 = ""):
     #tweets now holds all of our relavant tweets
     tweets = df
 
+    getKeywordsFrequency(tweets)
     #------------------------------------------------------------------------------#
 
     #PART 2: PREPROCESSING
@@ -138,6 +146,79 @@ def makePrediction(model, bearer, name1, name2 = ""):
 
     print(average_confidence, pos, neg)
 
+def findKeyTweets(bearer, name1, name2 = ""):
+    #PART 1: GETTING TWITTER DATA
+    params = {
+        'q': name1, 
+        'tweet_mode': 'extended',
+        'lang': 'en',
+        'count': '1000',
+        'result_type': "popular"
+    }
+
+    response1 = requests.get(
+        'https://api.twitter.com/1.1/search/tweets.json',
+        params=params,
+        headers={'authorization': 'Bearer '+ bearer}
+    )
+    if (name2 != ""):
+        #make a request for tweets mentioning "tsla"
+        params = {
+            'q': 'tsla',
+            'tweet_mode': 'extended',
+            'lang': 'en',
+            'count': '1000'
+        }
+        response2 = requests.get(
+            'https://api.twitter.com/1.1/search/tweets.json',
+            params=params,
+            headers={'authorization': 'Bearer '+ "AAAAAAAAAAAAAAAAAAAAAGvSOQEAAAAAeMnU6cOK5qNAaUl4g3jIltH0nNw%3DZTvb9om1pZAkDkZmmvI2ZxldPQiTSyMg8ulk5jH1d9rONo4N2o"}
+        )
+
+    #adds response1 and response2 tweets to the dataframe (df)
+    df = pd.DataFrame()
+    for tweet in response1.json()['statuses']:
+        row = getData(tweet)
+        df = df.append(row, ignore_index=True)
+
+    if (name2 != ""):
+        for tweet in response2.json()['statuses']:
+            row = getData(tweet)
+            df = df.append(row, ignore_index=True)
+
+    #tweets now holds all of our relavant tweets
+    tweets = df
+    tweets_list = []
+    for i in range(3):
+        hot_tweet = (tweets.iloc[i])
+        tweets_list.append(hot_tweet.get("text"))
+    # for tweet in tweets_list:
+    #     print(tweet)
+
+def getKeywordsFrequency(full_tweets):
+    stoplist = stopwords.words('english')
+    stoplist.append("I")
+    stoplist.append("The")
+    stoplist.append("RT")
+
+    tweets_list = []
+    for i in range(len(full_tweets)):
+        hot_tweet = (full_tweets.iloc[i])
+        tweets_list.append(hot_tweet.get("text"))
+    
+    keyword_dict = {}
+    for tweet in tweets_list:
+        for word in tweet.split():
+            if word not in stoplist:
+                if (word in keyword_dict.keys()):
+                    keyword_dict[word] = keyword_dict[word] + 1
+                else:
+                    keyword_dict[word] = 1
+
+    sorted_d = dict( sorted(keyword_dict.items(), key=operator.itemgetter(1),reverse=True))
+    print(sorted_d)
+    #print(keyword_dict)
+
 def main():
     myModel = flair.models.TextClassifier.load('en-sentiment')
     #get my secret API keys (api_keys_file.csv)
@@ -148,10 +229,10 @@ def main():
     bearer_keys = (list_of_rows[2])
     bearer_key = bearer_keys[1]
     makePrediction(myModel, bearer_key, "tesla", "tsla")
-    makePrediction(myModel, bearer_key, "qualcomm")
     #make a request for tweets mentioning "tesla"
-    
 
+    findKeyTweets(bearer_key, "qualcomm", "qcom")
+    
 
 if __name__ == "__main__":
     main()
