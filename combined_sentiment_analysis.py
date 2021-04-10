@@ -56,7 +56,7 @@ def clean_comment(comment):
 
 
 def get_reddit_comments(reddit, company_name, ticker):
-    if ticker == "GME":
+    if ticker == "GME" or ticker.lower() == "gamestop":
         return get_reddit_gme_comments(reddit)
 
     reddit_comments = list()
@@ -77,7 +77,14 @@ def get_reddit_gme_comments(reddit):
 
 
 def comment_is_relevant(comment, company_name, ticker):
-    return re.search(ticker, comment, re.IGNORECASE) or re.search(company_name, comment, re.IGNORECASE)
+    if len(ticker) == 0:
+        return re.search(company_name, comment, re.IGNORECASE)
+    else:
+        return re.search(ticker, comment, re.IGNORECASE) or re.search(company_name, comment, re.IGNORECASE)
+
+
+def comment_is_relevant(comment, company_name):
+    return re.search(company_name, comment, re.IGNORECASE)
 
 
 def calculate_sentiment(model, comments):
@@ -138,7 +145,7 @@ def main():
     reddit = praw.Reddit(client_id=reddit_client_id, client_secret=reddit_client_secret,
                          user_agent=reddit_user_agent)
 
-    print(make_prediction(model, reddit, twitter_bearer_key, "tesla", "tsla"))
+    print(make_prediction(model, reddit, twitter_bearer_key, "qualcomm", "tsla"))
 
 
 if __name__ == "__main__":
