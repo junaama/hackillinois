@@ -215,8 +215,12 @@ def getKeywordsFrequency(full_tweets):
                 else:
                     keyword_dict[word] = 1
 
-    sorted_d = dict( sorted(keyword_dict.items(), key=operator.itemgetter(1),reverse=True))
-    print(sorted_d)
+    sorted_d = dict(sorted(keyword_dict.items(), key=operator.itemgetter(1),reverse=True))
+    for key in sorted_d:
+        if (sorted_d[key] < 8):
+            break
+        print(key, sorted_d[key])
+    
     #print(keyword_dict)
 
 def main():
