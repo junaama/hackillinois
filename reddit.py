@@ -13,7 +13,7 @@ reddit = praw.Reddit(client_id='RgFYwRpBqsZ5vw', client_secret='1QLaOziV8n77kzEQ
 #         print(submission.title)
 #         print(submission.link_flair_text)
 
-for submission in reddit.subreddit('wallstreetbets').search('flair:"Daily Discussion"', limit=10):
+for submission in reddit.subreddit('wallstreetbets').search('flair:"Daily Discussion"', sort='new', limit=2):
     print(submission.title)
     print(submission.link_flair_text)
 
