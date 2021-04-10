@@ -78,6 +78,7 @@ def recommend(reddit, model, ticker):
 
 
 def main():
+    # TODO: Hide the key in a hidden file
     reddit = praw.Reddit(client_id='RgFYwRpBqsZ5vw', client_secret='1QLaOziV8n77kzEQSvCtEUghASLaRQ',
                          user_agent='HackIllinoisBot')
     sentiment_model = flair.models.TextClassifier.load('en-sentiment')
