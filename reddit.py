@@ -10,3 +10,6 @@ reddit = praw.Reddit(client_id='RgFYwRpBqsZ5vw', client_secret='1QLaOziV8n77kzEQ
 # simple demonstration
 for submission in reddit.subreddit('wallstreetbets').hot(limit=10):
     print(submission.title)
+
+url = 'https://www.reddit.com/r/wallstreetbets/comments/mnf6e4/gme_megathread_for_april_09_2021/'
+submission = reddit.submission(url=url)
