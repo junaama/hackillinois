@@ -6,7 +6,14 @@
    "Sentiment": "Negative",
    "Positive_Num": 94,
    "Negative_Num": 107,
-   "Confidence_Score": 0.9398
+   "Confidence_Score": 0.9398,
+   "Price_1": 667.93,
+   "Price_2": 661.75,
+   "Price_3": 691.05,
+   "Price_4": 691.62,
+   "Price_5": 670.97,
+   "Price_6": 683.80,
+   "Price_7": 677.02
  },
  {
    "Name": "Qualcomm",
@@ -15,7 +22,14 @@
    "Sentiment": "Positive",
    "Positive_Num": 55,
    "Negative_Num": 39,
-   "Confidence_Score": 0.9425
+   "Confidence_Score": 0.9425,
+   "Price_1": 132.59,
+   "Price_2": 137.79,
+   "Price_3": 140.33,
+   "Price_4": 138.06,
+   "Price_5": 139.43,
+   "Price_6": 140.34,
+   "Price_7": 140.57
  },
  {
    "Name": "Apple",
@@ -24,7 +38,14 @@
    "Sentiment": "Positive",
    "Positive_Num": 116,
    "Negative_Num": 108,
-   "Confidence_Score": 0.8971
+   "Confidence_Score": 0.8971,
+   "Price_1": 122.15,
+   "Price_2": 123.00,
+   "Price_3": 125.90,
+   "Price_4": 126.21,
+   "Price_5": 127.90,
+   "Price_6": 130.36,
+   "Price_7": 133.00
  },
  {
    "Name": "Robinhood",

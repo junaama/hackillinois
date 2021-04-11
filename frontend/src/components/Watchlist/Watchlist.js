@@ -9,25 +9,28 @@ const Watchlist = (props) => {
   const { currentUser } = useContext(AuthContext);
   useEffect(() => {
     const stockRef = database.ref("users/" + currentUser.uid);
-
     stockRef.on("value", (snapshot) => {
-      setStocks(Object.values(snapshot.val()));
+      if (snapshot.val()) {
+        setStocks(Object.values(snapshot.val()));
+      }
     });
-  }, []);
-
-  const stocksInWatchlist = stocks.map((item) => {
-    return (
-      <div className="p-2 flex-row">
-
-    <StockCard ticker={item} showAddWatchlist={false} />
-      </div>
-    )
-  });
+  }, [currentUser.uid]);
+  let stocksInWatchlist = ""
+  if (stocks) {
+    stocksInWatchlist = stocks.map((item) => {
+      return (
+        <div className="p-2 flex-row">
+          <StockCard ticker={item} showAddWatchlist={false} />
+        </div>
+      );
+    });
+  }
 
   return (
     <>
-    <Navbar/>
-      <div className="min-h-screen bg-blue-darkest text-white">
+      {/* <Navbar /> */}
+      <div className="min-h-screen bg-blue-darkest text-white text-center">
+        {/* {stocksInWatchlist === "" ? stocksInWatchlist : "No stocks added to your watchlist yet!"} */}
         {stocksInWatchlist}
       </div>
     </>

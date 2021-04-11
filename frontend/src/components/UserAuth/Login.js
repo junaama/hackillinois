@@ -19,8 +19,8 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
-  console.log(userInfo)
+  }, [history,userInfo]);
+  
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
     history.push("/");
