@@ -8,9 +8,9 @@ def get_current_price(symbol):
 
 print(get_current_price('TSLA'))
 
-def get_daily_change(symbol):
+def get_price_week(symbol):
     ticker = yf.Ticker(symbol)
-    data = ticker.history(period='1d')
-    return (data['Close'][0] - data['Open'][0]) / data['Open'][0]
+    data = ticker.history(period='7d', interval='1d')
+    return data['Close']
 
-print(get_daily_change('TSLA'))
+print(get_price_week('TSLA'))
