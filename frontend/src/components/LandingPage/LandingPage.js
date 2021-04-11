@@ -4,15 +4,17 @@ import React from 'react'
 import About from './About'
 import Header from './Header'
 import Navbar from '../Layout/Nav'
-import SearchBar from '../SearchBar'
+import Dropdown from '../Dropdown/Dropdown'
 
 const LandingPage = () => {
   return (
-    <div className="page">
+    <div className="landing-page">
       <Navbar/>
-      <Header/>
-      <SearchBar/>
-      <About/>
+      <div className="landing-content">
+        <Header/>
+        <Dropdown />
+        <About/>
+      </div>
     </div>
   );
 };
