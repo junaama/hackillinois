@@ -2,6 +2,7 @@
 import Navbar from "../Layout/Nav";
 import SearchBar from "../SearchBar";
 import Card from "../Stock/StockCard";
+import BarGraph from "../Stock/horizontalBar"
 
 const Dashboard = (props) => {
   return (
@@ -18,6 +19,11 @@ const Dashboard = (props) => {
           </p>
         )}
       </div>
+      <div>
+        <BarGraph/>
+      </div>
+
+
     </div>
   );
 };
