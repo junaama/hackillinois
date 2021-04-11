@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse} from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
-import SearchBar from '../SearchBar'
 
 class Navbar extends Component {
 
@@ -25,16 +24,15 @@ render() {
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="../Dashboard/Dashboard.js">Home</MDBNavLink>
+              <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem active>
-              <MDBNavLink to="../LandingPage/LandingPage.js">About</MDBNavLink>
+              <MDBNavLink to="#">About</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="#!">Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavbarNav center>
-                <SearchBar/>
             </MDBNavbarNav>
             <MDBNavbarNav right>
                 <MDBNavItem>
