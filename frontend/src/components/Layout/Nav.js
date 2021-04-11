@@ -15,7 +15,7 @@ const Navbar = () => {
               className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
               href="#pablo"
             >
-              VibeCheck
+              MoonStock
             </a>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -49,6 +49,7 @@ const Navbar = () => {
                   <span className="ml-2">Dashboard</span>
                 </a>
               </li>
+              {currentUser ? <li><Link to="/watchlist" className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"><span className="ml-2">Watchlist</span></Link></li> : ""}
               <li className="nav-item">
                 {currentUser ? (
                   <button

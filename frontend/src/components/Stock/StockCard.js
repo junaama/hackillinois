@@ -1,38 +1,47 @@
 //**Renders each invidual Stock Card data */
-import React from 'react';
-import './StockCard.css'
-import stockData from '../../stockdata.json'
+import React from "react";
+import "./StockCard.css";
+import stockData from "../../stockdata.json";
+import UpdateWatchlist from '../Watchlist/UpdateWatchlist'
 
-function Card(props){
-    const Response= stockData.filter((item) =>{
-        return item["Name"] === props.ticker
-    });
+function Card(props) {
+  const Response = stockData.filter((item) => {
+    return item["Name"] === props.ticker;
+  });
 
-    console.log(Response);
-    return(
-        <div className="card-container">
-            <div className="card-content">
-                <div className="card-title">
-                    <h3>{Response[0]["Name"]}</h3>
-                </div>
-                <div className="card-abrv">
-                    <p>{Response[0]["Ticker"]}</p>
-                </div>
-                <div className="card-recommend">
-                    <p>{Response[0]["Recommendation"]}</p>
-                </div>
-                <div className="card-sentiment">
-                    <p>{Response[0]["Sentiment"]}</p>
-                </div>
-                <div className="card-score">
-                    <p>{Response[0]["Confidence Score"]}</p>
-                </div>
-            </div>
-            <div>
-  </div>
+  return (
+      <>
+    <div className="flex items-center justify-center">
+      <div className="text-center bg-purple-lightest ">
+        <div className="">
+          <p className="p-1 font-bold text-purple-darker">
+            {Response[0]["Name"]} | {}
+            {Response[0]["Ticker"]}
+          </p>
+        </div>
+
+        <div className="bg-white">
+          <p className="p-1 text-purple-darker">Recommendation: {Response[0]["Recommendation"]}</p>
+        </div>
+        <div className="bg-purple-darker">
+          <p className="p=1 text-white">
+            Sentiment: {Response[0]["Sentiment"]}
+          </p>
+        </div>
+        <div className="bg-white">
+          <p className="p-1 text-purple-darker">Confidence: {Response[0]["Confidence_Score"]}</p>
+        </div>
+
+        <div className="flex flex-row justify-between p-1">
+          <div>-{Response[0]["Negative_Num"]}</div>
+          <div>+{Response[0]["Positive_Num"]}</div>
+        </div>
+      </div>
+   
     </div>
-
-    )
+    {props.showAddWatchlist ? <UpdateWatchlist ticker={props.ticker}/>: ""}
+    </>
+  );
 }
 
-export default Card
+export default Card;
