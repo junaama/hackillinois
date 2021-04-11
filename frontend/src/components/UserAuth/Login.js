@@ -1,11 +1,11 @@
 //**Renders Login Page */
 
-import React, {useState, useCallback, useContext} from "react";
+import React, { useState, useCallback, useContext } from "react";
 import firebase from "../../firebase";
 import { AuthContext } from "./FirebaseAuth";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 const Login = () => {
-    const history = useHistory();
+  const history = useHistory();
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const handleChange = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -16,14 +16,13 @@ const Login = () => {
       await firebase
         .auth()
         .signInWithEmailAndPassword(userInfo.email, userInfo.password);
-      history.push("/")
+      history.push("/");
     } catch (error) {
       console.error(error);
     }
   }, []);
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
-      console.log("Current User On?")
     history.push("/dashboard");
   }
   return (
