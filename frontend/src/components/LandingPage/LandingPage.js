@@ -4,12 +4,14 @@ import React from 'react'
 import About from './About'
 import Header from './Header'
 import Navbar from '../Layout/Nav'
+import SearchBar from '../SearchBar'
 
 const LandingPage = () => {
   return (
     <div className="page">
       <Navbar/>
       <Header/>
+      {/* <SearchBar/> */}
       <About/>
     </div>
   );
