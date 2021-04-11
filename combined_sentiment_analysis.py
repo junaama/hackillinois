@@ -7,6 +7,7 @@ import requests
 
 
 def make_prediction(model, reddit, twitter_bearer_key, company_name, ticker=""):
+    """Give a recommendation for a specific stock using reddit and twitter data."""
     tweets = get_tweets(twitter_bearer_key, company_name, ticker)
     reddit_comments = get_reddit_comments(reddit, company_name, ticker)
     all_comments = tweets + reddit_comments
@@ -16,6 +17,7 @@ def make_prediction(model, reddit, twitter_bearer_key, company_name, ticker=""):
 
 
 def get_tweets(bearer_key, company_name, ticker):
+    """Collect relevant tweets."""
     company_name_response = get_twitter_request(company_name, bearer_key)
 
     tweets = list()
@@ -32,6 +34,7 @@ def get_tweets(bearer_key, company_name, ticker):
 
 
 def get_twitter_request(search_string, bearer_key):
+    """Send a get request with search string to the Twitter API."""
     params = {
         'q': search_string,
         'tweet_mode': 'extended',
@@ -48,6 +51,7 @@ def get_twitter_request(search_string, bearer_key):
 
 
 def clean_comment(comment):
+    """Trim a comment of whitespace and web address."""
     whitespace = re.compile(r"\s+")
     web_address = re.compile(r"(?i)http(s):\/\/[a-z0-9.~_\-\/]+")
     comment = whitespace.sub(' ', comment)
@@ -56,6 +60,7 @@ def clean_comment(comment):
 
 
 def get_reddit_comments(reddit, company_name, ticker):
+    """Collect relevant reddit comments in r/wallstreetbets."""
     if ticker == "GME" or ticker.lower() == "gamestop":
         return get_reddit_gme_comments(reddit)
 
@@ -69,6 +74,7 @@ def get_reddit_comments(reddit, company_name, ticker):
 
 
 def get_reddit_gme_comments(reddit):
+    """Collect relevant reddit comments from the daily GME Megathread."""
     reddit_comments = list()
     for submission in reddit.subreddit('wallstreetbets').search(query='GME Megathread', sort='new', limit=2):
         for i in range(0, 400):
@@ -77,6 +83,7 @@ def get_reddit_gme_comments(reddit):
 
 
 def comment_is_relevant(comment, company_name, ticker):
+    """Check if a comment contains the company name or ticker ignoring casing."""
     if len(ticker) == 0:
         return re.search(company_name, comment, re.IGNORECASE)
     else:
@@ -84,6 +91,7 @@ def comment_is_relevant(comment, company_name, ticker):
 
 
 def calculate_sentiment(model, comments):
+    """Calculate the sentiment and accuracy of each tweet or reddit comment."""
     probabilities = list()
     sentiments = list()
 
@@ -97,6 +105,7 @@ def calculate_sentiment(model, comments):
 
 
 def calculate_recommendation(probabilities, sentiments):
+    """Calculate a recommendation from a list of sentiments."""
     pos = 0.0
     neg = 0.0
 
@@ -141,7 +150,7 @@ def main():
     reddit = praw.Reddit(client_id=reddit_client_id, client_secret=reddit_client_secret,
                          user_agent=reddit_user_agent)
 
-    print(make_prediction(model, reddit, twitter_bearer_key, "gamestop", "gme"))
+    print(make_prediction(model, reddit, twitter_bearer_key, "moderna", "mrna"))
 
 
 if __name__ == "__main__":
