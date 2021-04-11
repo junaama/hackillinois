@@ -28,9 +28,10 @@ const Watchlist = (props) => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-blue-darkest text-white text-center">
-        {stocksInWatchlist === "" ? stocksInWatchlist : "No stocks added to your watchlist yet!"}
+        {/* {stocksInWatchlist === "" ? stocksInWatchlist : "No stocks added to your watchlist yet!"} */}
+        {stocksInWatchlist}
       </div>
     </>
   );
