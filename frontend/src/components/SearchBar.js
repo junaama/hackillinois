@@ -7,16 +7,29 @@ const SearchBar = () => {
     const [ticker, setTicker] = useState("")
     const handleChange = (e)=> {
         setTicker(e.target.value)
+
     }
     const handleSubmit = (e)=> {
         e.preventDefault();
-        console.log('in handle submit')
-        history.push("/dashboard")
+        history.push("/dashboard", ticker)
     }
+    
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Search for stocks" onChange={handleChange}/>
+                <label id="listbox-label" class="block text-sm font-medium text-gray-700" for="Stocks">Choose a Stock:</label>
+                <select name="Stocks" onChange={handleChange} value={ticker}>
+                    <option value=""></option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Qualcomm">Qualcomm</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Robinhood">Robinhood</option>
+                    <option value="Doordash">Doordash</option>
+                    <option value="United Airlines">United Airlines</option>
+                    <option value="Goldman Sachs">Goldman Sachs</option>
+                    <option value="J&J">J&#38;J</option>
+                    <option value="TMobile">T-Mobile</option>
+                </select>
                 <button>Search</button>
             </form>
         </div>
