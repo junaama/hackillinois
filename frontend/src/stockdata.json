@@ -1,0 +1,83 @@
+[
+ {
+   "Name": "Tesla",
+   "Ticker": "TSLA",
+   "Recommendation": "Hold",
+   "Sentiment": "Negative",
+   "Positive_Num": 94,
+   "Negative_Num": 107,
+   "Confidence Score": 0.9398
+ },
+ {
+   "Name": "Qualcomm",
+   "Ticker": "QCOM",
+   "Recommendation": "Buy",
+   "Sentiment": "Positive",
+   "Positive_Num": 55,
+   "Negative_Num": 39,
+   "Confidence Score": 0.9425
+ },
+ {
+   "Name": "Apple",
+   "Ticker": "AAPL",
+   "Recommendation": "Hold",
+   "Sentiment": "Positive",
+   "Positive_Num": 116,
+   "Negative_Num": 108,
+   "Confidence Score": 0.8971
+ },
+ {
+   "Name": "Robinhood",
+   "Ticker": "N/A",
+   "Recommendation": "Sell",
+   "Sentiment": "Negative",
+   "Positive_Num": 13,
+   "Negative_Num": 25,
+   "Confidence Score": 0.8935
+ },
+ {
+   "Name": "Doordash",
+   "Ticker": "DASH",
+   "Recommendation": "Hold",
+   "Sentiment": "Positive",
+   "Positive_Num": 96,
+   "Negative_Num": 90,
+   "Confidence Score": 0.9297
+ },
+ {
+   "Name": "United Airlines",
+   "Ticker": "UAL",
+   "Recommendation": "Sell",
+   "Sentiment": "Negative",
+   "Positive_Num": 71,
+   "Negative_Num": 115,
+   "Confidence Score": 0.9365
+ },
+ {
+   "Name": "Goldman Sachs",
+   "Ticker": "GS",
+   "Recommendation": "Hold",
+   "Sentiment": "Negative",
+   "Positive_Num": 98,
+   "Negative_Num": 111,
+   "Confidence Score": 0.9306
+ },
+ {
+   "Name": "J&J",
+   "Ticker": "JNJ",
+   "Recommendation": "Strong Sell",
+   "Sentiment": "Negative",
+   "Positive_Num": 62,
+   "Negative_Num": 123,
+   "Confidence Score": 0.9248
+ },
+ {
+   "Name": "TMobile",
+   "Ticker": "TMUS",
+   "Recommendation": "Buy",
+   "Sentiment": "Positive",
+   "Positive_Num": 121,
+   "Negative_Num": 61,
+   "Confidence Score": 0.9137
+ }
+]
