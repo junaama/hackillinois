@@ -4,7 +4,8 @@ import React from "react";
 const Header = () => {
     return (
     <div className="title">
-        <h1>Predict the <i className="italicized-text">hottest</i> stocks</h1>
+        <p>Predict the</p>
+        <p><i className="italicized-text">hottest</i> stocks</p>
     </div>
     )
 }
