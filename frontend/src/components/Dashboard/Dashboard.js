@@ -1,15 +1,18 @@
 //** Renders Dashboard view with Watchlist, SearchBar, UpdateWatchlist, StockCard, StockChart components */
-import Navbar from "../Layout/Nav";
-import SearchBar from "../SearchBar";
 import Card from "../Stock/StockCard";
-import BarGraph from "../Stock/horizontalBar"
+import Dropdown from "../Dropdown/Dropdown";
+import styled from "styled-components";
+
+const Container = styled.div`
+  margin-left: 5em;
+  margin-right: 5em;
+  min-height: 74vh;
+`;
 
 const Dashboard = (props) => {
   return (
-    <div className="min-h-screen bg-blue-darkest">
-      <Navbar />
-      <SearchBar />
-
+    <Container>
+      <Dropdown />
       <div>
         {props.location.state ? (
           <Card ticker={props.location.state} showAddWatchlist={true}></Card>
@@ -19,12 +22,6 @@ const Dashboard = (props) => {
           </p>
         )}
       </div>
-      <div>
-        <BarGraph/>
-      </div>
-
-
-    </div>
   );
 };
 

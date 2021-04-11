@@ -1,5 +1,5 @@
 //**Renders button to add stock to watchlist to be used across multiple components */
-import { database, db } from "../../firebase";
+import { database } from "../../firebase";
 import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
 import {Link} from 'react-router-dom'
@@ -18,36 +18,19 @@ const UpdateWatchlist = (props) => {
     }
   };
 
-  if (currentUser) {
-    console.log("Current User On?", currentUser.uid);
-  }
 
   if (!currentUser) {
     return (
-      <div>
+      <div className="flex items-center justify-center p-4">
         <p className="text-white text-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <Link to="/login">Login</Link> to save stocks to your watchlist.
+          <Link to="/login" className="bg-red-bold text-white py-2 px-2 border-1 border-red-deeper rounded">Login to save stocks to your watchlist.</Link>
         </p>
       </div>
     );
   }
   return (
-    <div>
-      <button onClick={handleClick}>
+    <div className="flex items-center justify-center">
+      <button onClick={handleClick} className="m-8 bg-red-bold hover:bg-blue-500 text-purple-lightest hover:text-white py-2 px-2 border-1 border-red-deeper hover:border-transparent rounded">
         <span className="text-white">Add To Watchlist</span>
       </button>
     </div>

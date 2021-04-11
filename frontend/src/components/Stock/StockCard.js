@@ -3,7 +3,7 @@ import React from "react";
 /*import "./StockCard.css";*/
 import stockData from "../../stockdata.json";
 import UpdateWatchlist from '../Watchlist/UpdateWatchlist'
-
+// import Graph from './StockChart'
 function Card(props) {
   const Response = stockData.filter((item) => {
     return item["Name"] === props.ticker;

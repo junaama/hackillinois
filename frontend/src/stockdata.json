@@ -6,7 +6,14 @@
    "Sentiment": "Negative",
    "Positive_Num": 94,
    "Negative_Num": 107,
-   "Confidence_Score": 0.9398
+   "Confidence_Score": 0.9398,
+   "Price_1": 667.93,
+   "Price_2": 661.75,
+   "Price_3": 691.05,
+   "Price_4": 691.62,
+   "Price_5": 670.97,
+   "Price_6": 683.80,
+   "Price_7": 677.02
  },
  {
    "Name": "Qualcomm",
@@ -15,7 +22,14 @@
    "Sentiment": "Positive",
    "Positive_Num": 55,
    "Negative_Num": 39,
-   "Confidence_Score": 0.9425
+   "Confidence_Score": 0.9425,
+   "Price_1": 132.59,
+   "Price_2": 137.79,
+   "Price_3": 140.33,
+   "Price_4": 138.06,
+   "Price_5": 139.43,
+   "Price_6": 140.34,
+   "Price_7": 140.57
  },
  {
    "Name": "Apple",
@@ -24,7 +38,14 @@
    "Sentiment": "Positive",
    "Positive_Num": 116,
    "Negative_Num": 108,
-   "Confidence_Score": 0.8971
+   "Confidence_Score": 0.8971,
+   "Price_1": 122.15,
+   "Price_2": 123.00,
+   "Price_3": 125.90,
+   "Price_4": 126.21,
+   "Price_5": 127.90,
+   "Price_6": 130.36,
+   "Price_7": 133.00
  },
  {
    "Name": "Robinhood",
@@ -42,7 +63,14 @@
    "Sentiment": "Positive",
    "Positive_Num": 96,
    "Negative_Num": 90,
-   "Confidence_Score": 0.9297
+   "Confidence_Score": 0.9297,
+   "Price_1": 131.13,
+   "Price_2": 133.14,
+   "Price_3": 133.55,
+   "Price_4": 131.09,
+   "Price_5": 127.50,
+   "Price_6": 128.14,
+   "Price_7": 140.50
  },
  {
    "Name": "United Airlines",
@@ -51,7 +79,14 @@
    "Sentiment": "Negative",
    "Positive_Num": 71,
    "Negative_Num": 115,
-   "Confidence_Score": 0.9365
+   "Confidence_Score": 0.9365,
+   "Price_1": 57.54,
+   "Price_2": 57.82,
+   "Price_3": 59.29,
+   "Price_4": 59.48,
+   "Price_5": 59.57,
+   "Price_6": 59.43,
+   "Price_7": 58.43
  },
  {
    "Name": "Goldman Sachs",
@@ -60,7 +95,14 @@
    "Sentiment": "Negative",
    "Positive_Num": 98,
    "Negative_Num": 111,
-   "Confidence_Score": 0.9306
+   "Confidence_Score": 0.9306,
+   "Price_1": 327.00,
+   "Price_2": 327.64,
+   "Price_3": 323.54,
+   "Price_4": 327.06,
+   "Price_5": 326.55,
+   "Price_6": 331.14,
+   "Price_7": 330.81
  },
  {
    "Name": "J&J",
@@ -69,7 +111,14 @@
    "Sentiment": "Negative",
    "Positive_Num": 62,
    "Negative_Num": 123,
-   "Confidence_Score": 0.9248
+   "Confidence_Score": 0.9248,
+   "Price_1": 164.35,
+   "Price_2": 162.83,
+   "Price_3": 163.43,
+   "Price_4": 163.39,
+   "Price_5": 163.61,
+   "Price_6": 162.97,
+   "Price_7": 161.25
  },
  {
    "Name": "TMobile",
@@ -78,6 +127,13 @@
    "Sentiment": "Positive",
    "Positive_Num": 121,
    "Negative_Num": 61,
-   "Confidence_Score": 0.9137
+   "Confidence_Score": 0.9137,
+   "Price_1": 125.29,
+   "Price_2": 127.65,
+   "Price_3": 131.40,
+   "Price_4": 131.43,
+   "Price_5": 131.02,
+   "Price_6": 130.11,
+   "Price_7": 129.03
  }
 ]

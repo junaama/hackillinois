@@ -11,12 +11,16 @@ const Dropdown = () => {
   const refInFocus = useInFocus(dropdownRef);
   const [ searchInput, setSearchInput ] = useState("");
   const history = useHistory();
+  const [clicked, setClicked ] = useState(false);
   
   const handleSearchInputChange = (e) => {
+    setClicked(false);
     setSearchInput(e.target.value);
   };
 
   const handleOnClick = (ticker) => {
+    setSearchInput("");
+    setClicked(true);
     history.push("/dashboard", ticker);
   };
 
@@ -26,7 +30,7 @@ const Dropdown = () => {
     <Container ref={dropdownRef} className="dropdown">
       <Search autoComplete="off" name="keywords" value={searchInput} onChange={handleSearchInputChange} type="search" className="search" placeholder="Search for stocks" />
       <Content className="dropdown-content">
-        {refInFocus && searchInput ? filteredStocks.map((stock, index) => <div className="dropdown-item" onClick={handleOnClick.bind(null, stock)} key={index}>{stock}</div>) : null}
+        {!clicked && refInFocus && searchInput ? filteredStocks.map((stock, index) => <div className="dropdown-item" onClick={handleOnClick.bind(null, stock)} key={index}>{stock}</div>) : null}
       </Content>
     </Container>
   );
