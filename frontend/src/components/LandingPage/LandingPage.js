@@ -2,11 +2,13 @@
 import './LandingPage.css'
 import React from 'react'
 import About from './About'
-import Header from '../Layout/Header'
+import Header from './Header'
+import Navbar from '../Layout/Nav'
 
 const LandingPage = () => {
   return (
     <div className="page">
+      <Navbar/>
       <Header/>
       <About/>
     </div>

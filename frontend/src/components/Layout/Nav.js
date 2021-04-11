@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse} from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 
-class NavbarPage extends Component {
+class Navbar extends Component {
 
 state = {
   isOpen: false
@@ -49,4 +49,4 @@ render() {
   }
 }
 
-export default NavbarPage;
+export default Navbar;

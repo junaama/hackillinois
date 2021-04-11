@@ -8,7 +8,7 @@ import Login from './components/UserAuth/Login'
 import Dashboard from './components/Dashboard/Dashboard'
 const App = () => {
   return (
-    <FirebaseAuth>
+    
       <div className="App">
         <Switch>
           <Route exact path="/" component={LandingPage}/>
@@ -18,7 +18,7 @@ const App = () => {
           
         </Switch>
       </div>
-    </FirebaseAuth>
+    
   )
 }
 

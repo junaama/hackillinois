@@ -1,18 +1,36 @@
 .about{
     color: #FA6060;
     text-align: center;
+    margin-top: 5%;
 }
 
 .about-info{
     color: white;
     text-align: center;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 50%;
 }
 
 .page{
     background-color: #05219b;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-title{
+.title{
     size: 3em;
     color: white;
+    text-align: center;
+    margin-top: 2%;
 }
+
+.italicized-text {
+    color: #FA6060;
+}
+
+body { 
+    overflow-y:hidden;  
+}
+
