@@ -19,7 +19,7 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [history,userInfo]);
   
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {

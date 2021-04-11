@@ -14,7 +14,7 @@ const Watchlist = (props) => {
         setStocks(Object.values(snapshot.val()));
       }
     });
-  }, []);
+  }, [currentUser.uid]);
   let stocksInWatchlist = ""
   if (stocks) {
     stocksInWatchlist = stocks.map((item) => {
