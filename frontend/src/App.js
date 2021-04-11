@@ -6,10 +6,18 @@ import Register from "./components/UserAuth/Register";
 import Login from "./components/UserAuth/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Watchlist from "./components/Watchlist/Watchlist";
+import Navbar from "./components/Layout/Nav";
+import styled from "styled-components";
+
+const Container = styled.div`
+  background-color: #10245c;
+`;
+
 const App = () => {
   return (
     <FirebaseAuth>
-      <div className="bg-blue-darkest">
+      <Container>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/register" component={Register} />
@@ -17,7 +25,7 @@ const App = () => {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/watchlist" component={Watchlist}/>
         </Switch>
-      </div>
+      </Container>
     </FirebaseAuth>
   );
 };
