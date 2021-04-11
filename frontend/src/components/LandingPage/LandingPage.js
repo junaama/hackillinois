@@ -11,7 +11,7 @@ const LandingPage = () => {
     <div className="page">
       <Navbar/>
       <Header/>
-      {/* <SearchBar/> */}
+      <SearchBar/>
       <About/>
     </div>
   );
