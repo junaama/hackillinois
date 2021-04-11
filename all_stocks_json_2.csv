@@ -1,0 +1,11 @@
+Name,Name,Recommendation,Sentiment,Positive_Num,Negative_Num,Confidence Score
+Tesla,TSLA,Hold,Negative,94,107,0.9398
+Qualcomm,QCOM,Buy,Positive,55,39,0.9425
+Gamestop,GME,Strong Sell,Negative,63,138,0.9134
+Apple,AAPL,Hold,Positive,116,108,0.8971
+Robinhood,N/A,Sell,Negative,13,25,0.8935
+Doordash,DASH,Hold,Positive,96,90,0.9297
+United Airlines,UAL,Sell,Negative,71,115,0.9365
+Goldman Sachs,GS,Hold,Negative,98,111,0.9306
+J&J,JNJ,Strong Sell,Negative,62,123,0.9248
+TMobile,TMUS,Buy,Positive,121,61,0.9137
