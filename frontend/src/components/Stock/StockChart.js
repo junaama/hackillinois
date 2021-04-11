@@ -1,4 +1,5 @@
 //**Renders Stock Chart */
+
 import React from 'react';
 import {Line} from 'react-chartjs-2';
 import stockData from "../../stockdata.json";

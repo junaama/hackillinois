@@ -2,21 +2,23 @@ import { useState } from "react";
 import { Logout } from "../UserAuth/Logout";
 import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const history = useHistory();
   return (
     <div>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#pablo"
+            <div
+              className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white cursor-pointer"
+              onClick={() => history.push("/")}
             >
               MoonStock
-            </a>
+            </div>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
@@ -34,20 +36,20 @@ const Navbar = () => {
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/"
+                <div
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 cursor-pointer"
+                  onClick={() => history.push("/")}
                 >
                   <span className="ml-2">Home</span>
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/dashboard"
+                <div
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 cursor-pointer"
+                  onClick={() => history.push("/dashboard")}
                 >
                   <span className="ml-2">Dashboard</span>
-                </a>
+                </div>
               </li>
               {currentUser ? <li><Link to="/watchlist" className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"><span className="ml-2">Watchlist</span></Link></li> : ""}
               <li className="nav-item">
