@@ -1,9 +1,18 @@
 //** Renders Dashboard view with Watchlist, SearchBar, UpdateWatchlist, StockCard, StockChart components */
+import Navbar from "../Layout/Nav"
+import SearchBar from "../SearchBar"
 import Card from "../Stock/StockCard"
 
 const Dashboard=(props)=>{
     return(
-        <Card ticker={props.location.state}></Card>
+        <>
+        {/* Navbar not rendering correctly */}
+        <Navbar/> 
+        <SearchBar/>
+        {props.location.state ? <Card ticker={props.location.state}></Card> : "Search for a stock!"}
+        
+        </>
+        
     )
     
 }

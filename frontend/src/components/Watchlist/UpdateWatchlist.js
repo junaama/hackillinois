@@ -1,6 +1,6 @@
 //**Renders button to add stock to watchlist to be used across multiple components */
-import { database, db } from "../firebase";
-import { AuthContext } from "./UserAuth/FirebaseAuth";
+import { database, db } from "../../firebase";
+import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
 const UpdateWatchlist = () => {
   const { currentUser } = useContext(AuthContext);

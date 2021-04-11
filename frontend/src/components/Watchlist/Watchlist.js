@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { database } from "../firebase";
-import StockCard from "./Stock/StockCard";
-import { AuthContext } from "./UserAuth/FirebaseAuth";
+import { database } from "../../firebase";
+import StockCard from "../Stock/StockCard";
+import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
 const Watchlist = () => {
   const [stocks, setStocks] = useState([]);
