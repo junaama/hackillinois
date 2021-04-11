@@ -1,5 +1,5 @@
 //**Renders button to add stock to watchlist to be used across multiple components */
-import { database, db } from "../../firebase";
+import { database } from "../../firebase";
 import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
 import {Link} from 'react-router-dom'
@@ -18,9 +18,6 @@ const UpdateWatchlist = (props) => {
     }
   };
 
-  if (currentUser) {
-    console.log("Current User On?", currentUser.uid);
-  }
 
   if (!currentUser) {
     return (
