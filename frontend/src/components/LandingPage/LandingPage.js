@@ -1,12 +1,14 @@
 //** Renders landing page component which will feature SearchBar, Header, Nav, and About components */
+import './LandingPage.css'
+import React from 'react'
+import About from './About'
+import Header from '../Layout/Header'
 
-import React from "react";
-import SearchBar from '../SearchBar'
 const LandingPage = () => {
   return (
-    <div>
-      <p>Landing Page</p>
-      <SearchBar/>
+    <div className="page">
+      <Header/>
+      <About/>
     </div>
   );
 };
