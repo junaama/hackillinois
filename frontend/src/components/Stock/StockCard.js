@@ -1,6 +1,6 @@
 //**Renders each invidual Stock Card data */
 import React from "react";
-import "./StockCard.css";
+/*import "./StockCard.css";*/
 import stockData from "../../stockdata.json";
 import UpdateWatchlist from '../Watchlist/UpdateWatchlist'
 

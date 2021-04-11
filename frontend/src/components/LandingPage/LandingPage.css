@@ -14,7 +14,7 @@
 }
 
 .page{
-    background-color: #05219b;
+    background-color: #52539B;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -24,6 +24,7 @@
     color: white;
     text-align: center;
     margin-top: 2%;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 .italicized-text {
