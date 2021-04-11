@@ -1,5 +1,4 @@
 //**Renders Login Page */
-
 import React, { useState, useCallback, useContext } from "react";
 import firebase from "../../firebase";
 import { AuthContext } from "./FirebaseAuth";
@@ -15,15 +14,16 @@ const Login = () => {
     try {
       await firebase
         .auth()
-        .signInWithEmailAndPassword(userInfo.email, userInfo.password);
+        .signInWithEmailAndPassword(userInfo.email.trim(), userInfo.password);
       history.push("/");
     } catch (error) {
       console.error(error);
     }
   }, []);
+  console.log(userInfo)
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
-    //history.push("/dashboard");
+    history.push("/");
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-darkest py-12 px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ const Login = () => {
                 onChange={handleChange}
                 name="email"
                 required
-                class="appearance-none relative block w-full px-3 py-2 bg-purple-normal placeholder-purple-lightest text-white rounded-md focus:outline-none focus:ring-purple-darker focus:border-purple-darker focus:z-10 sm:text-sm"
+                className="appearance-none relative block w-full px-3 py-2 bg-purple-normal placeholder-purple-lightest text-white rounded-md focus:outline-none focus:ring-purple-darker focus:border-purple-darker focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -66,7 +66,7 @@ const Login = () => {
                 onChange={handleChange}
                 name="password"
                 required
-                class="appearance-none  relative block w-full px-3 py-2 bg-purple-normal   placeholder-purple-lightest text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none  relative block w-full px-3 py-2 bg-purple-normal placeholder-purple-lightest text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>

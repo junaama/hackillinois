@@ -6,7 +6,7 @@
    "Sentiment": "Negative",
    "Positive_Num": 94,
    "Negative_Num": 107,
-   "Confidence Score": 0.9398
+   "Confidence_Score": 0.9398
  },
  {
    "Name": "Qualcomm",
@@ -15,7 +15,7 @@
    "Sentiment": "Positive",
    "Positive_Num": 55,
    "Negative_Num": 39,
-   "Confidence Score": 0.9425
+   "Confidence_Score": 0.9425
  },
  {
    "Name": "Apple",
@@ -24,7 +24,7 @@
    "Sentiment": "Positive",
    "Positive_Num": 116,
    "Negative_Num": 108,
-   "Confidence Score": 0.8971
+   "Confidence_Score": 0.8971
  },
  {
    "Name": "Robinhood",
@@ -33,7 +33,7 @@
    "Sentiment": "Negative",
    "Positive_Num": 13,
    "Negative_Num": 25,
-   "Confidence Score": 0.8935
+   "Confidence_Score": 0.8935
  },
  {
    "Name": "Doordash",
@@ -42,7 +42,7 @@
    "Sentiment": "Positive",
    "Positive_Num": 96,
    "Negative_Num": 90,
-   "Confidence Score": 0.9297
+   "Confidence_Score": 0.9297
  },
  {
    "Name": "United Airlines",
@@ -51,7 +51,7 @@
    "Sentiment": "Negative",
    "Positive_Num": 71,
    "Negative_Num": 115,
-   "Confidence Score": 0.9365
+   "Confidence_Score": 0.9365
  },
  {
    "Name": "Goldman Sachs",
@@ -60,7 +60,7 @@
    "Sentiment": "Negative",
    "Positive_Num": 98,
    "Negative_Num": 111,
-   "Confidence Score": 0.9306
+   "Confidence_Score": 0.9306
  },
  {
    "Name": "J&J",
@@ -69,7 +69,7 @@
    "Sentiment": "Negative",
    "Positive_Num": 62,
    "Negative_Num": 123,
-   "Confidence Score": 0.9248
+   "Confidence_Score": 0.9248
  },
  {
    "Name": "TMobile",
@@ -78,6 +78,6 @@
    "Sentiment": "Positive",
    "Positive_Num": 121,
    "Negative_Num": 61,
-   "Confidence Score": 0.9137
+   "Confidence_Score": 0.9137
  }
 ]

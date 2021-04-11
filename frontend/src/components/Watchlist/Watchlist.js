@@ -3,10 +3,10 @@ import { database } from "../../firebase";
 import StockCard from "../Stock/StockCard";
 import { AuthContext } from "../UserAuth/FirebaseAuth";
 import { useContext } from "react";
-const Watchlist = () => {
+import Navbar from "../Layout/Nav";
+const Watchlist = (props) => {
   const [stocks, setStocks] = useState([]);
   const { currentUser } = useContext(AuthContext);
-
   useEffect(() => {
     const stockRef = database.ref("users/" + currentUser.uid);
 
@@ -15,12 +15,22 @@ const Watchlist = () => {
     });
   }, []);
 
+  const stocksInWatchlist = stocks.map((item) => {
+    return (
+      <div className="p-2 flex-row">
+
+    <StockCard ticker={item} showAddWatchlist={false} />
+      </div>
+    )
+  });
+
   return (
-    <div>
-      {stocks.map((stock) => {
-        <StockCard ticker={stock.name} />;
-      })}
-    </div>
+    <>
+    <Navbar/>
+      <div className="min-h-screen bg-blue-darkest text-white">
+        {stocksInWatchlist}
+      </div>
+    </>
   );
 };
 export default Watchlist;

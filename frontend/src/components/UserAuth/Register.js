@@ -1,8 +1,9 @@
 //**Renders Register Page */
 
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 import firebase from '../../firebase'
+import { AuthContext } from "./FirebaseAuth";
 const Register = () => {
   const history = useHistory();
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
@@ -21,6 +22,10 @@ const Register = () => {
   const handleChange = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) {
+    history.push("/");
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-darkest py-12 px-4 sm:px-6 lg:px-8">
     <div className="max-w-md w-full space-y-8">
