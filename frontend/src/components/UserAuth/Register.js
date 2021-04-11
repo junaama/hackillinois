@@ -27,7 +27,7 @@ const Register = () => {
     history.push("/");
   }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-darkest py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div className="max-w-md w-full space-y-8">
       <div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
@@ -35,12 +35,12 @@ const Register = () => {
         </h2>
         <p className="mt-2 text-center text-sm text-white">
           Or {}
-          <a
-            href="/register"
+          <div
+            onClick={() => history.push("/login")}
             className="font-medium text-red-bold hover:text-red-deeper"
           >
             log in to your account
-          </a>
+          </div>
         </p>
       </div>
       <form onSubmit={handleSubmit} className="mt-8 space-y-6">
