@@ -22,7 +22,6 @@ const Dashboard = (props) => {
           </p>
         )}
       </div>
-    </Container>
   );
 };
 
