@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
+import axios from 'axios'
 
-const data = [
-  {
-    "date": "Day 1",
-    "price": 4000,
-  },
-  {
-    "date": "Day 2",
-    "price": 5000,
-  },
-  {
-    "date": "Day 2",
-    "price": 5000,
-  },
-];
+export default function App({ ticker }) {
 
-export default function App() {
+  const [ data, setData ] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const results = await axios.get(process.env.REACT_APP_FLASK_API + `/tickers/${ticker}`);
+      setData(results.data);
+    }
+
+    getData();
+  }, [ticker]);
+
+  const newData = data.map(obj => {
+    obj.date = obj.date.split(" ").slice(0, 4).join(" ");
+    return obj;
+  });
+
   return (
-    <LineChart width={730} height={250} data={data}
+    <>
+    <LineChart width={700} height={300} data={newData}
   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
       <XAxis dataKey="date" />
       <YAxis />
       <Tooltip />
       <Line type="monotone" dataKey="price" stroke="#82ca9d" strokeWidth={2} />
     </LineChart>
+    </>
   ); 
 };

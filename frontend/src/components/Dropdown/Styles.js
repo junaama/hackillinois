@@ -7,6 +7,7 @@ const Container = styled.div`
   position: relative;
   left: 50%;
   transform: translate(-50%, -10%);
+  z-index: 1000;
 `;
 
 const Search = styled.input`
