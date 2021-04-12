@@ -12,6 +12,10 @@ This project was made for the HackIllinois hackathon. This is a responsive web a
 
 [frontend](frontend) folder contains the react code for the web application. It uses CRA, TailwindCSS, and Firebase for the Cloud hosted NoSQL database
 
+## Links
+[Figma Wireframes](https://www.figma.com/file/g593eKhG8qcQcXocmuxBrw/HI-Wireframes) 
+[Build](https://moonstock.netlify.app)
+
 ## Contributors
 
 This project was made in part by Naama Paulemont, Aparna Ayyah, William OCampo, Jasmine Gutierrez, Jeffrey Sun, and Andy Zhou.
