@@ -19,3 +19,27 @@ This project was made for the HackIllinois hackathon. This is a responsive web a
 ## Contributors
 
 This project was made in part by Naama Paulemont, Aparna Ayyah, William OCampo, Jasmine Gutierrez, Jeffrey Sun, and Andy Zhou.
+
+## Setup
+
+```
+# Create virtual environment 
+# Activate your virtual environment
+# Install all packages in the requirements.txt file
+# Import environment variables (manually)
+# Run application
+
+cd stock-api
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export FLASK_APP=stock-api.py
+flask run
+
+```
+
+```
+cd frontend
+npm install
+cp .env.local.example .env.local
+```
