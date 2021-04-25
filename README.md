@@ -1,4 +1,4 @@
-# HackIllinois Project
+# Moonstock
 
 ## About
 
